@@ -35,8 +35,8 @@ while True:
     tomorrow_date = today_date + datetime.timedelta(days=1)
 
     if is_veggie_day(today_date):
-        client.chat_postMessage(channel='#veg_test',text="Today is Vegetarian Day! :broccoli:")
+        client.chat_postMessage(channel='#vegetarian-day',text="Today is Vegetarian Day! :broccoli:")
     elif is_veggie_day(tomorrow_date):
-        client.chat_postMessage(channel='#veg_test',text="Tomorrow is Vegetarian Day! :avocado:")
+        client.chat_postMessage(channel='#vegetarian-day',text="Tomorrow is Vegetarian Day! :avocado:")
 
 
