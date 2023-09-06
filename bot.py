@@ -9,18 +9,13 @@ SLACK_TOKEN = os.environ["SLACK_TOKEN"]
 client = slack.WebClient(token=SLACK_TOKEN)
 
 weekday = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-possibledays = ["Monday","Tuesday","Thursday"]
+possibledays = ["Tuesday"]
 
-veggyday = datetime.datetime.fromisoformat('2023-01-09')
+veggyday = datetime.datetime.fromisoformat('2023-09-05')
 
 def is_veggie_day(dt:datetime.date):
     day = weekday[dt.weekday()]
-    if day in possibledays:
-        t_delta = dt - veggyday
-        num_days_since_veggyday = t_delta.days
-        return (day == "Thursday" and (num_days_since_veggyday-17)%21 == 0) or (day == "Monday" and (num_days_since_veggyday)%21 == 0) or (day == "Tuesday" and (num_days_since_veggyday-8)%21 == 0)
-    else:
-        return False
+    return day in possibledays
 
 while True:
     if datetime.datetime.now().hour >= 10:
